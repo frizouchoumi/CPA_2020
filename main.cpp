@@ -18,13 +18,20 @@ std::string array_to_string( char* buffer, std::size_t size)
     // Injecter tous les caractères sous forme d'entiers dans le flux 
     for (std::size_t i = 0; i < size; ++i) 
     { 
+        /*if( typeid(buffer[i]) == typeid(uint16_t)){
+        // change endianness
+        buffer[i]  = __builtin_bswap32(buffer[i]);
+        cout << buffer[i] << endl;
+      }*/
         // Séparer chaque octet par un espace 
-        if (i != 0) 
-            oss << ' '; 
+        if (i != 0) {
+            oss << ' '; }
   
         // Afficher sa valeur hexadécimale précédée de "0x" 
         // setw(2) permet de forcer l'affichage à 2 caractères 
-        oss <<  std::setw(2) << static_cast<int>(buffer[i]); 
+        
+      
+        oss <<  std::setw(2) << static_cast< uint16_t>(buffer[i]); 
     } 
   
     return oss.str(); 
@@ -71,13 +78,13 @@ int main(int argc, char* argv[]){
         
         database = argv[2];
         std::cout << "Il y a bien les 3 fichiers  " << database << " et "<< argv[1]<< std::endl;
-        string test = database + ".psq";
+        string test = database + ".pin";
         cout << test << endl;
     }
     
     /*std::string ligne;*/
     
-    ifstream monFlux(database +".psq", std::ios::in | std::ios::binary);
+    ifstream monFlux(database +".pin", std::ios::in | std::ios::binary);
     /*std::ifstream monFlux(argv[1]+ "psq",ios::in |ios::binary);*/
    
     if (!monFlux.is_open()){
@@ -99,7 +106,27 @@ int main(int argc, char* argv[]){
     
     // UtilMonflux les données ici
     string a =array_to_string(buffer, length) ;
-    cout <<a << endl;
+   // cout <<a << endl;
+    int i = 0;
+    vector<string> sequence;
+    istringstream iss(a); 
+    string mot; 
+    while ( std::getline( iss, mot, ' ' ) ) 
+    { 
+        if (mot.size() >> 2) {
+            sequence.push_back(mot.substr(2,3));
+        i++; 
+        }
+        else 
+        sequence.push_back(mot);
+        
+    } 
+    int sizevect = sequence.size();
+   for (int j=0 ;j<sizevect; j++){
+    cout << sequence[j] << " "<< endl;
+    }
+   
+
     // Libérer la mémoire une foMonflux le traitement terminé
     delete[] buffer;
         
