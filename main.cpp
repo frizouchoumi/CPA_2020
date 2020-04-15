@@ -106,7 +106,7 @@ int main(int argc, char* argv[]){
     
     // UtilMonflux les données ici
     string a =array_to_string(buffer, length) ;
-   // cout <<a << endl;
+    //cout <<a << endl;
     int i = 0;
     vector<string> sequence;
     istringstream iss(a); 
@@ -122,9 +122,9 @@ int main(int argc, char* argv[]){
         
     } 
     int sizevect = sequence.size();
-   for (int j=0 ;j<sizevect; j++){
-    cout << sequence[j] << " "<< endl;
-    }
+  // for (int j=0 ;j<sizevect; j++){
+    cout << sequence[sequence.size()-1] << " "<< endl;
+    //}
    
 
     // Libérer la mémoire une foMonflux le traitement terminé
