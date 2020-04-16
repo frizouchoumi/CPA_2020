@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include <iostream>
+#include <fstream>
+#include <string>
+#include <vector>
+#include <bits/stdc++.h> 
+using namespace std;
+class pinAnalyser {
+    private :
+        int versionNumber;
+        int databaseType;
+        int titleLenght;
+        std::string title;
+        int timeStamplenght;
+        std::string TimeStamp;
+        int numberSequence;
+        int residueCount;
+        int maximeSequence;
+        vector<int> headerOffset;
+        vector<int> sequenceOffset;
+
+
+
+    
+
+    public:
+        int convStringToBin(vector<string> bin, int j, int x);
+        pinAnalyser(vector<string> sequencePin);
+        ~pinAnalyser();
+        string convBintoChar(vector<string> bin, int j , int x);
+};
+
