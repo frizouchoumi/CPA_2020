@@ -86,5 +86,5 @@ vector<int> pinAnalyser::convBinToVect(vector<string> bin, int NombreDeProt , in
     vectorPosition[i]= i_hex;
     where += 4;
     }
-
+    return vectorPosition;
 }
