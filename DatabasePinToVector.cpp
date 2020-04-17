@@ -1,13 +1,10 @@
-#include <stdio.h>
-#include <iostream>
-#include <fstream>
-#include <string>
-#include <vector>
-#include <bits/stdc++.h> 
-#include <DatabasePinToVector.h>
+#include "DatabasePinToVector.h"
 using namespace std;
 
-/*std::string array_to_string( char* buffer, std::size_t size) 
+
+
+
+string DatabasePinToVector::array_to_string( char* buffer, std::size_t size) 
 { 
     std::ostringstream oss; 
   
@@ -31,7 +28,7 @@ using namespace std;
     } 
   
     return oss.str(); 
-}*/
+}
 
 /*void printInBinary(int num) 
 { 
@@ -53,7 +50,7 @@ using namespace std;
     } 
 } */
 
-/*vector<string> DatabasePinToVector(string argv, string type){
+DatabasePinToVector::DatabasePinToVector(string argv, string type){
 
     string database = argv;
     char num;
@@ -63,11 +60,11 @@ using namespace std;
     ifstream monFlux(database +type, std::ios::in | std::ios::binary);
     /*std::ifstream monFlux(argv[1]+ "psq",ios::in |ios::binary);*/
    
-   /* if (!monFlux.is_open()){
+    if (!monFlux.is_open()){
         cout<< " pas ouvert" << endl;
     }
     
-    else {*/
+    else {
     // Fonction qui était censé permettre de print la base de donnée sous forme normal
   /*  string ligne;
     int x;
@@ -80,27 +77,27 @@ using namespace std;
     x++;
     }*/
     // Obtenir la taille du fichier
-    /*monFlux.seekg(0, ios::end);
+    monFlux.seekg(0, ios::end);
     length = monFlux.tellg();
     monFlux.seekg(0, ios::beg);
  
     // Allouer de la mémoire pour le fichier
-    buffer = new char [length];*/
+    buffer = new char [length];
  
    
     
     // Ecrire les données en mémoire
-    /*monFlux.read (buffer,length);
-    monFlux.close();*/
+    monFlux.read (buffer,length);
+    monFlux.close();
     
     // UtilMonflux les données ici
-   // string a =array_to_string(buffer, length) ;
+    string a =array_to_string(buffer, length) ;
    // cout <<"ok" << endl;
-    /*int i = 0;
+    int i = 0;
     vector<string> sequence;
     istringstream iss(a); 
-    string mot; */
-   /* while ( std::getline( iss, mot, ' ' ) ) 
+    string mot; 
+    while ( std::getline( iss, mot, ' ' ) ) 
     { 
         if (mot.size() >> 2) {
             sequence.push_back(mot.substr(2,3));
@@ -109,82 +106,20 @@ using namespace std;
         else 
         sequence.push_back(mot);
         
-    } */
+    } 
     // ICI Sequence qui est un vecteur qui a comme element : ( 00,00,00,04 ... F9 ...)
-    /*int sizevect = sequence.size();
+    int sizevect = sequence.size();
    for (int j=0 ;j<sizevect; j++){
     cout << sequence[j] << " "<< endl;
     }
     // Libérer la mémoire une foMonflux le traitement terminé
     delete[] buffer;
-    return sequence;
+    databaseVector= sequence;
 
     }
 }
-*/
 
 
-int main(int argc, char* argv[]) {
-
-  
- 
- 
-    if (argc < 3) {
-        std::cout << "Veuillez inclure le fichier prot et la database" << std::endl;
-        
-    }
-    
-
-    else if (argc=3)
-    {
-        
-        string ok = argv[2];
-        std::cout << "Il y a bien les 3 fichiers  " << argv[2] << " et "<< argv[1]<< std::endl;
-        string test = ok + ".pin";
-        cout << test << endl;
-
-        DatabasePinToVector pinDatabase =DatabasePinToVector(argv[2],".pin");
-        DatabasePinToVector phrDatabase =DatabasePinToVector(argv[2],".phr");
-        DatabasePinToVector psqDatabase =DatabasePinToVector(argv[2],".psq");
-        std::cout <<pinDatabase.getDatabaseVector()[0]<< endl;
-    }
-    
-    /*std::string ligne;*/
-    
-    
-   
-
-    
-    return 0;
-        
-    }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
- 
-    
- 
-
-    
-
-
-
+vector<std::string> DatabasePinToVector::getDatabaseVector(){
+    return databaseVector;
+}
