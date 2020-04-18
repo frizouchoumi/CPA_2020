@@ -5,7 +5,10 @@
 #include <vector>
 #include <bits/stdc++.h> 
 #include "DatabasePinToVector.h"
+#include "psqAnalyser.h"
+#include "PinAnalyser.h"
 using namespace std;
+
 
 
  
@@ -53,10 +56,21 @@ int main(int argc, char* argv[]) {
         DatabasePinToVector pinDatabase(argv[2],".pin");
         DatabasePinToVector phrDatabase(argv[2],".phr");
         DatabasePinToVector psqDatabase(argv[2],".psq");
-       // for (int i = 0 ; i< pinDatabase.getDatabaseVector().size();i++){
-     //   std::cout <<pinDatabase.getDatabaseVector()[i]<< endl;
-        //}
-        vector<char> protSequence = sequenceAcquisition(argv[1]);
+        pinAnalyser pinAnalyse(pinDatabase.getDatabaseVector());
+        
+
+       psqAnalyser psqAnalyse(psqDatabase.getDatabaseVector(), argv[1],pinAnalyse.getSequenceOffset(),pinAnalyse.getResidu());
+       std::cout << "wuite du main"<< endl;
+       /*for (int i = 0 ; i < psqDatabase.getDatabaseVector().size() ;i++){  
+           cout << psqDatabase.getDatabase
+           Vector()[i] << endl;
+
+       }*/
+       /* for (int i = 0 ; i< pinDatabase.getDatabaseVector().size();i++){
+       std::cout <<pinDatabase.getDatabaseVector()[i]<< endl;
+        }*/
+        //vector<char> protSequence = sequenceAcquisition(argv[1]);
+
        /* for (int i = 0 ; i < protSequence.size();i ++)
         {
             std::cout << protSequence[i] << endl ;

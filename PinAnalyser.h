@@ -18,6 +18,8 @@ class pinAnalyser {
         int maximeSequence;
         vector<int> headerOffset;
         vector<int> sequenceOffset;
+        int residu;
+
 
 
 
@@ -27,9 +29,16 @@ class pinAnalyser {
     public:
         int convStringToBin(vector<string> bin, int j, int x);
         pinAnalyser(vector<string>const& sequencePin);
-        ~pinAnalyser();
+       // ~pinAnalyser();
         string convBintoChar(vector<string> bin, int j , int x);
         int convStringToBinBigEndian(vector<string> bin, int Lenght, int where);
-        vector<int> convBinToVect(vector<string> bin, int j , int x);
+        vector<int> convBinToVect(vector<string> bin, int j , int x);       
+        int getNumberSequence();
+        vector<int> getHeaderOffstet();
+        vector<int> getSequenceOffset();   
+        int getVersionNumber();
+        int getResidu();
+
+    
 };
 

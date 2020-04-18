@@ -17,23 +17,42 @@ using namespace std;
         position += timeStamplenght;
         numberSequence =convStringToBin(sequencePin,4,position);  // int qui prend le nombre de sequence
         position +=4;
-        residueCount = convStringToBinBigEndian(sequencePin,8,position); //?
+        std::cout << numberSequence<< endl;
+        //residueCount = convStringToBinBigEndian(sequencePin,8,position); //?
         position +=8;
         maximeSequence= convStringToBin(sequencePin,4,position); // int qui prendre la valeur de la plus grande sequence
         position +=8;
         headerOffset = convBinToVect(sequencePin, numberSequence , position); // Vecteur qui reprend la position du header de la protéine numéro 1  dans la variable vector[0]
-        position += numberSequence*4;
+        position += numberSequence*4; 
+        //std::cout <<headerOffset[0] << headerOffset[1] << headerOffset[2]<< headerOffset[3] << endl;
         sequenceOffset = convBinToVect(sequencePin,numberSequence,position);// Vecteur qui reprend  la position de la séquence de la protéine numéro 1  dans la variable vector[0]
-
-
+       // std::cout <<sequenceOffset[0]<< sequenceOffset[2] << endl;
+        position += numberSequence*4;
+        residu = convStringToBin(sequencePin,4,position);
 
 
         
     }
 
+int pinAnalyser::getVersionNumber(){
+    return versionNumber;
+  
+}
+int pinAnalyser::getResidu(){
+    return residu;
+  
+}
+int pinAnalyser::getNumberSequence(){
+    return numberSequence;
+}
 
+vector<int> pinAnalyser::getHeaderOffstet(){
+    return headerOffset;
+}
 
-
+vector<int> pinAnalyser::getSequenceOffset(){
+    return sequenceOffset;
+}
 
 
 
@@ -75,6 +94,26 @@ string pinAnalyser::convBintoChar(vector<string> bin, int Lenght, int where) {
 }
 vector<int> pinAnalyser::convBinToVect(vector<string> bin, int NombreDeProt , int where){
     vector<int> vectorPosition;
+    
+    int compteurDePosition = where;
+    
+
+    int j = 0;
+    while (j < 4*NombreDeProt) {
+        
+         string lol = "";
+        for (int i =0 ; i<4 ; i++)
+        {
+        lol += bin[compteurDePosition +j]; 
+        j++;   
+        }
+        int i_hex = stoi(lol,nullptr,16);
+                    
+        vectorPosition.push_back(i_hex);
+        //compteurDePosition += 4;
+                
+        }
+    /*
     for (int i = 0; i<NombreDeProt;i++){
         string lol ="";
         for (int j =0 ; i<4 ; j++)
@@ -83,8 +122,8 @@ vector<int> pinAnalyser::convBinToVect(vector<string> bin, int NombreDeProt , in
     }
 
     int i_hex = stoi(lol,nullptr,16);
-    vectorPosition[i]= i_hex;
+    vectorPosition.push_back(i_hex);
     where += 4;
-    }
+    }*/
     return vectorPosition;
 }
