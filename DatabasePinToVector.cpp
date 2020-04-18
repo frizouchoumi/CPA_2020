@@ -108,10 +108,10 @@ DatabasePinToVector::DatabasePinToVector(string argv, string type){
         
     } 
     // ICI Sequence qui est un vecteur qui a comme element : ( 00,00,00,04 ... F9 ...)
-    int sizevect = sequence.size();
-   for (int j=0 ;j<sizevect; j++){
-    cout << sequence[j] << " "<< endl;
-    }
+   // int sizevect = sequence.size();
+   //for (int j=0 ;j<sizevect; j++){
+   // cout << sequence[j] << " "<< endl;
+  //  }
     // Libérer la mémoire une foMonflux le traitement terminé
     delete[] buffer;
     databaseVector= sequence;
