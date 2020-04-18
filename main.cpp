@@ -8,7 +8,25 @@
 using namespace std;
 
 
+ 
 
+    vector<char> sequenceAcquisition(string argv){ 
+        ifstream maProtSeq(argv);
+        string garbage;
+        string mot;
+        
+        vector<char> bail;
+        getline(maProtSeq,garbage);
+        while(getline(maProtSeq,mot)){
+            for (int k = 0 ; k < mot.size(); k++){
+            bail.push_back(mot[k]);
+            }
+        }
+        for (int i = 0 ; i < bail.size(); i++){
+            std::cout <<bail[i] << endl;
+        }
+        return bail;
+    }
 
 int main(int argc, char* argv[]) {
 
@@ -38,8 +56,8 @@ int main(int argc, char* argv[]) {
        // for (int i = 0 ; i< pinDatabase.getDatabaseVector().size();i++){
      //   std::cout <<pinDatabase.getDatabaseVector()[i]<< endl;
         //}
-        /*vector<char> protSequence = sequenceAcquisition(argv[1]);
-        for (int i = 0 ; i < protSequence.size();i ++)
+        vector<char> protSequence = sequenceAcquisition(argv[1]);
+       /* for (int i = 0 ; i < protSequence.size();i ++)
         {
             std::cout << protSequence[i] << endl ;
         }*/
@@ -55,25 +73,7 @@ int main(int argc, char* argv[]) {
     
     return 0;
         
-    }
-
-    vector<char> sequenceAcquisition(string argv){ 
-        ifstream maProtSeq(argv);
-        string garbage;
-        string mot;
-        
-        vector<char> bail;
-        getline(maProtSeq,garbage);
-        while(getline(maProtSeq,mot)){
-            for (int k = 0 ; k < mot.size(); k++){
-            bail.push_back(mot[k]);
-            }
-        }
-        for (int i = 0 ; i < bail.size(); i++){
-            std::cout <<bail[i] << endl;
-        }
-        return bail;
-    }
+}
     
     
     
