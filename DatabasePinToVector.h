@@ -19,7 +19,7 @@ class DatabasePinToVector {
     public :
     std::string array_to_string( char* buffer, std::size_t size) ;
     DatabasePinToVector(string argv, string type);
-    vector<std::string> getDatabaseVector();
+    vector<std::string>const&  getDatabaseVector();
 
    
 };

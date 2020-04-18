@@ -21,7 +21,7 @@ int main(int argc, char* argv[]) {
     }
     
 
-    else if (argc=3)
+    else if (argc ==3)
     {
         
         string ok = argv[2];
@@ -29,13 +29,20 @@ int main(int argc, char* argv[]) {
         string test = ok + ".pin";
         cout << test << endl;
 
-       vector<char> sequuenceProt= sequenceAcquisition(argv[1]);
+       //vector<char> sequuenceProt= sequenceAcquisition(argv[1]);
 
 
-        DatabasePinToVector pinDatabase =DatabasePinToVector(argv[2],".pin");
-        DatabasePinToVector phrDatabase =DatabasePinToVector(argv[2],".phr");
-        DatabasePinToVector psqDatabase =DatabasePinToVector(argv[2],".psq");
-        std::cout <<pinDatabase.getDatabaseVector()[0]<< endl;//
+        DatabasePinToVector pinDatabase(argv[2],".pin");
+        DatabasePinToVector phrDatabase(argv[2],".phr");
+        DatabasePinToVector psqDatabase(argv[2],".psq");
+       // for (int i = 0 ; i< pinDatabase.getDatabaseVector().size();i++){
+     //   std::cout <<pinDatabase.getDatabaseVector()[i]<< endl;
+        //}
+        /*vector<char> protSequence = sequenceAcquisition(argv[1]);
+        for (int i = 0 ; i < protSequence.size();i ++)
+        {
+            std::cout << protSequence[i] << endl ;
+        }*/
 
 
     }

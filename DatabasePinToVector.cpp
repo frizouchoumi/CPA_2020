@@ -101,10 +101,10 @@ DatabasePinToVector::DatabasePinToVector(string argv, string type){
     { 
         if (mot.size() >> 2) {
             sequence.push_back(mot.substr(2,3));
-        i++; 
+             i++; 
         }
         else 
-        sequence.push_back(mot);
+            sequence.push_back(mot);
         
     } 
     // ICI Sequence qui est un vecteur qui a comme element : ( 00,00,00,04 ... F9 ...)
@@ -120,6 +120,6 @@ DatabasePinToVector::DatabasePinToVector(string argv, string type){
 }
 
 
-vector<std::string> DatabasePinToVector::getDatabaseVector(){
+vector<std::string>const& DatabasePinToVector::getDatabaseVector(){
     return databaseVector;
 }

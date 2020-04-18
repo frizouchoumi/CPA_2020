@@ -26,7 +26,7 @@ class pinAnalyser {
 
     public:
         int convStringToBin(vector<string> bin, int j, int x);
-        pinAnalyser(vector<string> sequencePin);
+        pinAnalyser(vector<string>const& sequencePin);
         ~pinAnalyser();
         string convBintoChar(vector<string> bin, int j , int x);
         int convStringToBinBigEndian(vector<string> bin, int Lenght, int where);

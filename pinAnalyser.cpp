@@ -1,6 +1,6 @@
 #include "PinAnalyser.h"
 using namespace std;
-    pinAnalyser::pinAnalyser(vector<string> sequencePin){
+    pinAnalyser::pinAnalyser(vector<string>const& sequencePin){
         //Serie d'étapes afin de decomposer le fichier Pin en ses différentes informations. 
         int position =0;
         versionNumber = convStringToBin(sequencePin,4,position); // version de la database
