@@ -1,6 +1,1 @@
-<<<<<<< HEAD
-Yo gilles
-=======
-Yo c'est Gilles okk
-
->>>>>>> 6debe729fb10d7f353d8ea22478532f531afe4bb
+Je créé une branche et je commit seulement cette branche
