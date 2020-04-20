@@ -3,14 +3,14 @@
 #include <fstream>
 #include <string>
 #include <vector>
-#include <bits/stdc++.h> 
+ 
 using namespace std;
 class psqAnalyser {
     private :
-    vector<char> sequenceProt;
+    vector<string> sequenceProt;
     vector<int> sequenceLenght;
     vector<int> candidateNumber;
-        
+    vector<vector<string>> candidate;
 
 
 
@@ -18,12 +18,13 @@ class psqAnalyser {
 
     public:
     
-        psqAnalyser(vector<string>const& sequencePsq, string argv, vector<int>const& sequenceOffsetn, int residu);
-        vector<char> sequenceAcquisition(string argv);
+        psqAnalyser(vector<string>const& sequencePsq, string argv, vector<int>const& sequenceOffset, int residu);
+        vector<string> sequenceAcquisition(string argv);
         //~psqAnalyser();
         vector<int> sequenceOffsetUse(vector<int> const & sequenceOffset,vector<string>const& sequencePsq, int residu);
-        vector<int> candidateNumbershearching(vector<char> sequenceProt,vector<int> sequenceLenght);
+        vector<int> candidateNumbershearching(vector<string> sequenceProt,vector<int> sequenceLenght);
         vector<int> getCandidateNumber();
+        vector<vector<string>> candidateShearching(vector<int> candidateNumber,vector<string> const& sequencePsq, vector<int> const& sequenceOffset);
 
 };
 

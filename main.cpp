@@ -3,7 +3,7 @@
 #include <fstream>
 #include <string>
 #include <vector>
-#include <bits/stdc++.h> 
+ 
 #include "DatabasePinToVector.h"
 #include "psqAnalyser.h"
 #include "PinAnalyser.h"
@@ -42,7 +42,7 @@ int main(int argc, char* argv[]) {
     }
     
 
-    else if (argc ==3)
+    else 
     {
         
         string ok = argv[2];

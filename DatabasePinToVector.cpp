@@ -77,6 +77,7 @@ DatabasePinToVector::DatabasePinToVector(string argv, string type){
     x++;
     }*/
     // Obtenir la taille du fichier
+    std::cout << "C'est ouvert" << endl;
     monFlux.seekg(0, ios::end);
     length = monFlux.tellg();
     monFlux.seekg(0, ios::beg);
