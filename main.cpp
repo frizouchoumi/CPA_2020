@@ -3,10 +3,10 @@
 #include <fstream>
 #include <string>
 #include <vector>
-#include <bits/stdc++.h> 
 #include "DatabasePinToVector.h"
 #include "psqAnalyser.h"
 #include "PinAnalyser.h"
+#include <bits/stdc++.h>
 using namespace std;
 
 
