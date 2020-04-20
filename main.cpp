@@ -3,17 +3,17 @@
 #include <fstream>
 #include <string>
 #include <vector>
- 
 #include "DatabasePinToVector.h"
 #include "psqAnalyser.h"
 #include "PinAnalyser.h"
+#include <bits/stdc++.h>
 using namespace std;
 
 
 
  
 
-    vector<char> sequenceAcquisition(string argv){ 
+ /*   vector<char> sequenceAcquisition(string argv){ 
         ifstream maProtSeq(argv);
         string garbage;
         string mot;
@@ -29,7 +29,7 @@ using namespace std;
             std::cout <<bail[i] << endl;
         }
         return bail;
-    }
+    }*/
 
 int main(int argc, char* argv[]) {
 
