@@ -3,19 +3,19 @@ using namespace std;
     psqAnalyser::psqAnalyser(vector<string>const& sequencePsq, string argv,vector<int>const& sequenceOffset, int residu ){
         sequenceProt = sequenceAcquisition(argv); 
         sequenceLenght = sequenceOffsetUse(sequenceOffset,sequencePsq,residu);
-        std::cout << sequenceProt.size() << endl;
-        std::cout <<sequenceProt[1]<< endl;
-        std::cout << sequenceOffset[4] << "     " << sequenceOffset[1] << endl ;
-        std::cout << sequenceLenght[0] << "ou" << sequenceLenght [1] << sequenceLenght[2] << sequenceLenght[3] << endl ;
-        cout << sequenceLenght.size(); 
+        //std::cout << sequenceProt.size() << endl;
+        //std::cout <<sequenceProt[1]<< endl;
+       // std::cout << sequenceOffset[4] << "     " << sequenceOffset[1] << endl ;
+       // std::cout << sequenceLenght[0] << "ou" << sequenceLenght [1] << sequenceLenght[2] << sequenceLenght[3] << endl ;
+        //cout << sequenceLenght.size(); 
         //SAVOIR QUE LA SEQUENCE ENREGISTRER SOUS FORME DE LETTRE A UNE LETTRE EN MOINS ( caractère /n pas coder )
         candidateNumber = candidateNumbershearching(sequenceProt,sequenceLenght);
         // std::cout<< " on est là "<< endl ;
         // A cet étape là du constructeur on a normalement les indices de toutes les séquence ayant la même longueur que celle recherché stocker dans candidate number
-        std::cout << candidateNumber[0] << endl;
+        //std::cout << candidateNumber[0] << endl;
         candidate = candidateShearching(candidateNumber,sequencePsq,sequenceOffset);
         // Ici j'ai un vecteur de vecteur avec tout les candidats : Reste à convertir ce vecteur candidat en vecteur avec des A , B , C , D , E ,F etc puis comparer avec séquence prot et enfin retourner le bon et enfin check le header avec le bon indice et c'est TERMINER <3 
-
+        indicewinner = findIndiceWinner(sequenceProt,candidate ,candidateNumber);
 
 
         
@@ -27,6 +27,7 @@ using namespace std;
 
 
 // return un vecteur avec la séquence de la prot chercher, on peut retrouver sa taille izi avec size
+
 vector<string> psqAnalyser::sequenceAcquisition(string argv){ 
         ifstream maProtSeq(argv);
         string garbage;
@@ -91,6 +92,33 @@ vector<vector<string>> psqAnalyser::candidateShearching(vector<int> candidateNum
     }
     return candidate;
 }
+
+int  psqAnalyser::findIndiceWinner(vector<string> sequenceProt,vector<vector<string>> candidate , vector<int> candidateNumber){
+    int i = 0;
+    while ( i<candidate.size() && candidate[i] != sequenceProt) {
+        i++;
+    } 
+    if (i < candidate.size()) {
+        std::cout << "la sequence est "<< endl;
+        for (int j = 0 ; j< candidate[i].size(); j++){
+          std::cout <<  candidate[i][j];
+        }
+        std:cout << endl;
+        return candidateNumber[i];
+         
+    }
+    else {
+        std::cout << " pas de correspondance parfaite"<< endl;
+        return 0;
+    }
+    
+}
+
+int psqAnalyser::getIndicewinner(){
+    return indicewinner;
+}
+
+
 
 
 

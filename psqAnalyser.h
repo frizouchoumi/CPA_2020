@@ -11,6 +11,7 @@ class psqAnalyser {
     vector<int> sequenceLenght;
     vector<int> candidateNumber;
     vector<vector<string>> candidate;
+    int indicewinner;
 
 
 
@@ -25,6 +26,8 @@ class psqAnalyser {
         vector<int> candidateNumbershearching(vector<string> sequenceProt,vector<int> sequenceLenght);
         vector<int> getCandidateNumber();
         vector<vector<string>> candidateShearching(vector<int> candidateNumber,vector<string> const& sequencePsq, vector<int> const& sequenceOffset);
+        int findIndiceWinner(vector<string> sequenceProt,vector<vector<string>> candidate, vector<int> candidateNumber);
+        int getIndicewinner();
 
 };
 

@@ -6,6 +6,7 @@
 #include "DatabasePinToVector.h"
 #include "psqAnalyser.h"
 #include "PinAnalyser.h"
+#include "phrAnalyser.h"
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -60,7 +61,9 @@ int main(int argc, char* argv[]) {
         
 
        psqAnalyser psqAnalyse(psqDatabase.getDatabaseVector(), argv[1],pinAnalyse.getSequenceOffset(),pinAnalyse.getResidu());
-       std::cout << "wuite du main"<< endl;
+       phrAnalyser phrAnalyse(phrDatabase.getDatabaseVector(),pinAnalyse.getHeaderOffstet(),psqAnalyse.getIndicewinner());
+       std::cout << endl;
+       std::cout << "suite du main" << endl;
        /*for (int i = 0 ; i < psqDatabase.getDatabaseVector().size() ;i++){  
            cout << psqDatabase.getDatabase
            Vector()[i] << endl;
